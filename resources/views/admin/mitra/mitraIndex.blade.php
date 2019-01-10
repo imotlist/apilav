@@ -49,16 +49,16 @@
 						<tbody>
 							@foreach($mitra as $data)
 							<tr>
-								<td>{{$data->mitra_nama}}</td>
-								<td>{{$data->mitra_email}}</td>
-								<td>{{$data->mitra_alamat}}</td>
-								<td>{{$data->mitra_telp}}</td>
-								<td>{{$data->mitra_pemilik}}</td>
+								<td>{{$data->m_nama}}</td>
+								<td>{{$data->m_email}}</td>
+								<td>{{$data->m_alamat}}</td>
+								<td>{{$data->m_telp}}</td>
+								<td>{{$data->m_pemilik}}</td>
 								<td align="center">
-									<a href="{{ route('mitra.edit',$data->mitra_id) }}">
+									<a href="{{ route('mitra.edit',$data->m_id) }}">
 										<button class="btn btn-xs btn-success"><span class="fa fa-pencil"></span></button>
 									</a>
-									<form action="{{ route('mitra.destroy', $data->mitra_id)}}" method="post">
+									<form action="{{ route('mitra.destroy', $data->m_id)}}" method="post">
 										@csrf
 										@method('DELETE')
 										<button onclick="return confirm('Yakin Hapus Data Ini ?')" type="submit" class="btn btn-xs btn-danger"><span class="fa fa-times"></span></button>

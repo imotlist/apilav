@@ -42,9 +42,9 @@ class MitraController extends Controller
         ]);
 
       $data = new MitraModel([
-        'mitra_nama' => $request->get('nama'),
-        'mitra_email'=> $request->get('email'),
-        'mitra_alamat'=> $request->get('alamat')
+        'm_nama' => $request->get('nama'),
+        'm_email'=> $request->get('email'),
+        'm_alamat'=> $request->get('alamat')
       ]);
       print_r($data);
       // $data->save();
@@ -91,9 +91,9 @@ class MitraController extends Controller
         ]);
 
       $data = MitraModel::find($id);
-      $data->mitra_nama = $request->get('nama');
-      $data->mitra_email = $request->get('email');
-      $data->mitra_alamat = $request->get('alamat');
+      $data->m_nama = $request->get('nama');
+      $data->m_email = $request->get('email');
+      $data->m_alamat = $request->get('alamat');
 
       $data->save();
 
