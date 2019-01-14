@@ -9,14 +9,14 @@ class MitraModel extends Model
 	protected $table = 'mitra';
 
     protected $fillable = [
-	    'mitra_nama',
-	    'mitra_email',
-	    'mitra_alamat',
-	    'mitra_telp',
-	    'mitra_pemilik',
-	    'mitra_status',
-	    'mitra_password'
+	    'm_nama',
+	    'm_email',
+	    'm_alamat',
+	    'm_telp',
+	    'm_pemilik',
+	    'm_status',
+	    'm_password'
 	  ];
 
-	protected $primaryKey = 'mitra_id';
+	protected $primaryKey = 'm_id';
 }

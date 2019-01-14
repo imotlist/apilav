@@ -1,5 +1,6 @@
 @extends('layouts.adminLayout.mainContent')
 @section('content')
+	<link rel="stylesheet" href="{{ asset('vendor/pnotify/pnotify.custom.css') }}" />
 	<section role="main" class="content-body">
 		<header class="page-header">
 			<h2>Master Mitra</h2>
@@ -42,8 +43,8 @@
 								<th width="25%">Email</th>
 								<th width="25%">Alamat</th>
 								<th width="15%">Telp</th>
-								<th width="15%">Pemilik</th>
-								<th width="15%">Action</th>
+								<th>Status</th>
+								<th width="20%">Action</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -53,12 +54,16 @@
 								<td>{{$data->m_email}}</td>
 								<td>{{$data->m_alamat}}</td>
 								<td>{{$data->m_telp}}</td>
-								<td>{{$data->m_pemilik}}</td>
+								<td>{{$data->m_status}}</td>
 								<td align="center">
 									<a href="{{ route('mitra.edit',$data->m_id) }}">
 										<button class="btn btn-xs btn-success"><span class="fa fa-pencil"></span></button>
 									</a>
-									<form action="{{ route('mitra.destroy', $data->m_id)}}" method="post">
+									<a href="{{ route('mitra.show',$data->m_id) }}">
+										<button class="btn btn-xs btn-info"><span class="fa fa-list"></span></button>
+									</a>
+									
+									<form onclick="return confirm('Yakin Hapus Data Ini?')" action="{{ route('mitra.destroy', $data->m_id)}}" method="post" style="position: relative; top: -22px; left: 40px; width: 25px">
 										@csrf
 										@method('DELETE')
 										<button onclick="return confirm('Yakin Hapus Data Ini ?')" type="submit" class="btn btn-xs btn-danger"><span class="fa fa-times"></span></button>
@@ -76,7 +81,9 @@
 	<!-- Specific Page Vendor -->
 	<script src="{{ asset('vendor/jquery-datatables/media/js/jquery.dataTables.js') }}"></script>
 	<script src="{{ asset('vendor/jquery-datatables/extras/TableTools/js/dataTables.tableTools.min.js') }}"></script>
-	<script src="{{ asset('vendor/jquery-datatables-bs3/assets/js/datatables.js') }}"></script>
+	<script src="{{ asset('vendor/jquery-datatables-bs3/assets/js/datatables.js') }}"></script>	
+	<script src="{{ asset('vendor/pnotify/pnotify.custom.js') }}"></script>
+	
 
 	<!-- Call id table -->
 	<script>

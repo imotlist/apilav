@@ -6,7 +6,7 @@
 
 	<section role="main" class="content-body">
 		<header class="page-header">
-			<h2><a href="{{route('mitra.index')}}">Master Mitra</a><em>/Create</em></h2> 
+			<h2><a href="{{route('mitra.index')}}">Master Mitra</a> | Create</h2> 
 		
 			<div class="right-wrapper pull-right">
 				<ol class="breadcrumbs">
@@ -74,7 +74,7 @@
 													<div class="form-group">
 														<label class="control-label">Status</label>
 														<div class="switch switch-sm switch-success">
-															<input type="checkbox" name="switch" data-plugin-ios-switch="" checked="checked" style="display: none;">
+															<input type="checkbox" name="status" data-plugin-ios-switch="" checked="checked" style="display: none;">
 														</div>
 													</div>
 												</div>
@@ -90,8 +90,8 @@
 											</div>
 											<div class="col-sm-6">
 												<div class="form-group">
-													<label class="control-label">Penanggung Jawab *</label>
-													<input type="text" name="pngjwb" class="form-control" required="">
+													<label class="control-label">Pemilik *</label>
+													<input type="text" name="pemilik" class="form-control" required="">
 												</div>
 											</div>
 										</div>

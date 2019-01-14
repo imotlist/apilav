@@ -6,7 +6,7 @@
 
 	<section role="main" class="content-body">
 		<header class="page-header">
-			<h2><a href="{{route('mitra.index')}}">Master Mitra</a><em>/Edit</em></h2> 
+			<h2><a href="{{route('mitra.index')}}">Master Mitra</a> | Edit</h2> 
 		
 			<div class="right-wrapper pull-right">
 				<ol class="breadcrumbs">
@@ -54,20 +54,20 @@
 							      </div><br />
 							    @endif
 								<div id="Basicdata" class="tab-pane active">
-									<form method="POST" enctype="multipart/form-data" action="{{ route('mitra.update', $data->mitra_id) }}">
+									<form method="POST" enctype="multipart/form-data" action="{{ route('mitra.update', $data->m_id) }}">
 										@method('PATCH')
 										@csrf
 										<div class="row">
 											<div class="col-sm-6">
 												<div class="form-group">
 													<label class="control-label">Nama Mitra *</label>
-													<input type="text" name="nama" class="form-control" required="" value="{{$data->mitra_nama}}">
+													<input type="text" name="nama" class="form-control" required="" value="{{$data->m_nama}}">
 												</div>
 											</div>
 											<div class="col-sm-4">
 												<div class="form-group">
 													<label class="control-label">No Telp *</label>
-													<input type="text" name="telp" class="form-control" required="" value="{{$data->mitra_telp}}">
+													<input type="text" name="telp" class="form-control" required="" value="{{$data->m_telp}}">
 												</div>
 											</div>
 											<div class="col-sm-2">
@@ -75,7 +75,7 @@
 													<div class="form-group">
 														<label class="control-label">Status</label>
 														<div class="switch switch-sm switch-success">
-															<input type="checkbox" name="switch" data-plugin-ios-switch="" checked="checked" style="display: none;">
+															<input type="checkbox" name="status" data-plugin-ios-switch="" checked="checked" style="display: none;">
 														</div>
 													</div>
 												</div>
@@ -86,13 +86,13 @@
 											<div class="col-sm-6">
 												<div class="form-group">
 													<label class="control-label">Email *</label>
-													<input type="email" name="email" class="form-control" required="" value="{{$data->mitra_email}}">
+													<input type="email" name="email" class="form-control" required="" value="{{$data->m_email}}">
 												</div>
 											</div>
 											<div class="col-sm-6">
 												<div class="form-group">
-													<label class="control-label">Penanggung Jawab *</label>
-													<input type="text" name="pngjwb" class="form-control" required="" value="{{$data->mitra_pemilik}}">
+													<label class="control-label">Pemilik *</label>
+													<input type="text" name="pemilik" class="form-control" required="" value="{{$data->m_pemilik}}">
 												</div>
 											</div>
 										</div>

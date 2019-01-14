@@ -40,15 +40,20 @@ class MitraController extends Controller
             'email'=> 'required',
             'alamat' => 'required'
         ]);
-
-      $data = new MitraModel([
-        'm_nama' => $request->get('nama'),
-        'm_email'=> $request->get('email'),
-        'm_alamat'=> $request->get('alamat')
-      ]);
-      print_r($data);
-      // $data->save();
-      // return redirect('/mitra')->with('success', 'Data has been added');
+        $status = $request->get('status');
+        if($status == 'on'){$status = 1; }else{$status=0;}
+        $data = new MitraModel([
+            'm_nama' => $request->get('nama'),
+            'm_telp' => $request->get('telp'),
+            'm_status' => $status,
+            'm_pemilik' => $request->get('pemilik'),
+            'm_email' => $request->get('email'),
+            'm_alamat' => $request->get('alamat'),
+            'm_password' => md5($request->get('pass1'))
+        ]);
+      // print_r($data);
+      $data->save();
+      return redirect('/mitra')->with('success', 'Data has been added');
     }
 
     /**
@@ -59,7 +64,7 @@ class MitraController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('admin.mitra.mitraShow');
     }
 
     /**
@@ -87,17 +92,24 @@ class MitraController extends Controller
         $request->validate([
             'nama'=>'required',
             'email'=> 'required',
+            'telp'=> 'required',
             'alamat' => 'required'
         ]);
 
-      $data = MitraModel::find($id);
-      $data->m_nama = $request->get('nama');
-      $data->m_email = $request->get('email');
-      $data->m_alamat = $request->get('alamat');
+        
+        $status = $request->get('status');
+        if($status == 'on'){$status = 1; }else{$status=0;}
+        $data = MitraModel::find($id);
+        $data->m_nama = $request->get('nama');
+        $data->m_telp = $request->get('telp');
+        $data->m_status = $status;
+        $data->m_pemilik = $request->get('pemilik');
+        $data->m_email = $request->get('email');
+        $data->m_alamat = $request->get('alamat');
 
-      $data->save();
+        $data->save();
 
-      return redirect('/mitra')->with('success', 'Data has been updated');
+return redirect('/mitra')->with('success', 'Data has been updated');
     }
 
     /**

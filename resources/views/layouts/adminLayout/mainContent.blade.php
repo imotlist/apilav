@@ -70,7 +70,8 @@
 		<!-- Theme Initialization Files -->
 		<script src="{{ asset('js/backend_js/javascripts/theme.init.js') }}"></script>
 
-
+		<!-- Examples -->
+		<script src="{{ asset('js/backend_js/javascripts/ui-elements/examples.modals.js') }}"></script>
 		
 	</body>
 </html>
