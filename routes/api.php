@@ -29,8 +29,27 @@ Route::put('article','ApiArticle@store');
 //delete
 Route::delete('article/{id}','ApiArticle@destroy');
 
+
 //Mitra
 // List
-Route::get('mitra', 'ApiMitra@index');
+Route::get('mitras', 'ApiMitra@index');
 //List single
 Route::get('mitra/{id}','ApiMitra@show');
+//update
+Route::put('mitra','ApiMitra@store');
+
+//Client
+// List
+Route::get('clients', 'ApiClient@index');
+//create new
+Route::post('client','ApiClient@store');
+//update
+Route::put('client','ApiClient@store');
+
+//Produk
+// List
+Route::get('produks', 'ApiProduk@index');
+//create new
+Route::post('produk','ApiProduk@store');
+//update
+Route::put('produk','ApiProduk@store');

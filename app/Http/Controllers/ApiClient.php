@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Model\MitraModel;
-use App\Http\Resources\Mitra as MitraResource;
-
-class ApiMitra extends Controller
+use App\Model\ClientModel;
+use App\Http\Resources\Client as ClientResource;
+class ApiClient extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +15,9 @@ class ApiMitra extends Controller
     public function index()
     {
         //get data
-        $datas = MitraModel::all();
+        $datas = ClientModel::all();
         //return collection of article as a resource
-        return MitraResource::collection($datas);
+        return ClientResource::collection($datas);
     }
 
     /**
@@ -39,13 +38,14 @@ class ApiMitra extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->isMethod('put') ? MitraModel::findOrFail($request->m_id) : new MitraModel;
+        $data = $request->isMethod('put') ? MitraModel::findOrFail($request->c_id) : new MitraModel;
 
-        $data->m_nama = $request->input('nama');
-        $data->m_email = $request->input('email');
-        $data->m_alamat = $request->input('alamat');
-        $data->m_telp = $request->input('telp');
-        $data->m_password = md5($request->input('password'));
+        $data->c_username = $request->input('username');
+        $data->c_fullname = $request->input('fullname');
+        $data->c_email = $request->input('email');
+        $data->c_alamat = $request->input('alamat');
+        $data->c_telp = $request->input('telp');
+        $data->c_password = md5($request->input('password'));
 
         if ($data->save()) {
             return new MitraResource($data);
@@ -63,9 +63,9 @@ class ApiMitra extends Controller
     public function show($id)
     {
         //get data
-        $data = MitraModel::findOrFail($id);
+        $data = ClientModel::findOrFail($id);
         
-        return new MitraResource($data);
+        return new ClientResource($data);
     }
 
     /**
